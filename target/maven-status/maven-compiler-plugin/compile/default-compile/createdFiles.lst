@@ -1,7 +1,6 @@
 utils/ConfigReader.class
-utils/ScreenshotUtils.class
-drivers/DriverFactory.class
-utils/WaitUtils.class
 reports/ExtentManager.class
 commons/BasePage.class
+utils/ScreenshotUtils.class
+drivers/DriverFactory.class
 pages/SearchPage.class

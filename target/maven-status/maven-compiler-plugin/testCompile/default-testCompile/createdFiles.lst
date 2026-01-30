@@ -1,4 +1,7 @@
 tests/SearchTest.class
+base/TestRunner.class
+tests/Test.class
+tests/RestAssured.class
 listeners/TestListeners.class
 retry/RetryAnanlyser.class
 base/BaseTest.class

@@ -12,10 +12,9 @@ pipeline {
      * TOOLS SECTION (Optional)
      * Uncomment when Jenkins has Maven/JDK configured globally.
      */
-    // tools {
-    //     maven 'Maven-3.9'
-    //     jdk 'JDK-11'
-    // }
+    tools {
+        maven 'Maven-3'
+    }
 
     stages {
 

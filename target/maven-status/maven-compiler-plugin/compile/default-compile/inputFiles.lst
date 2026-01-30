@@ -1,7 +1,6 @@
-/Users/rahulhandoo/Desktop/automation/src/main/java/utils/WaitUtils.java
-/Users/rahulhandoo/Desktop/automation/src/main/java/commons/BasePage.java
-/Users/rahulhandoo/Desktop/automation/src/main/java/utils/ConfigReader.java
-/Users/rahulhandoo/Desktop/automation/src/main/java/reports/ExtentManager.java
-/Users/rahulhandoo/Desktop/automation/src/main/java/drivers/DriverFactory.java
-/Users/rahulhandoo/Desktop/automation/src/main/java/pages/SearchPage.java
-/Users/rahulhandoo/Desktop/automation/src/main/java/utils/ScreenshotUtils.java
+/Users/rahulhandoo/automation/src/main/java/drivers/DriverFactory.java
+/Users/rahulhandoo/automation/src/main/java/commons/BasePage.java
+/Users/rahulhandoo/automation/src/main/java/pages/SearchPage.java
+/Users/rahulhandoo/automation/src/main/java/utils/ConfigReader.java
+/Users/rahulhandoo/automation/src/main/java/utils/ScreenshotUtils.java
+/Users/rahulhandoo/automation/src/main/java/reports/ExtentManager.java
