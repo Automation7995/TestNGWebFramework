@@ -1,35 +1,84 @@
 pipeline {
 
-//agent section....................
-    //Agent defines WHERE your pipeline runs
+    /*
+     * AGENT SECTION
+     * Defines where the pipeline will run.
+     * 'any' means any available Jenkins node.
+     * Can be replaced with docker, label, or per-stage agents.
+     */
     agent any
-    // agent none //In this case you need to mention the agent under every stage
-    // agent {
-    //     label 'linux'
-    // }
-    // agent {
-    //     docker {
-    //         image 'maven:3.9.6-eclipse-temurin-11'
-    //     }
-    // }
-    // agent {
-    //     dockerfile true
-    // }
-//......................
 
+    /*
+     * TOOLS SECTION (Optional)
+     * Uncomment when Jenkins has Maven/JDK configured globally.
+     */
     // tools {
     //     maven 'Maven-3.9'
     //     jdk 'JDK-11'
     // }
 
     stages {
-        stage('')
+
+        /*
+         * CHECKOUT STAGE
+         * Pulls source code from GitHub.
+         * For private repos, use Jenkins credentials instead of plain HTTPS.
+         */
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/Automation7995/TestNGWebFramework.git'
+            }
+        }
+
+        /*
+         * BUILD STAGE
+         * Compiles the project and resolves dependencies.
+         * Fails early if compilation errors exist.
+         */
+        stage('Build') {
+            steps {
+                sh 'mvn clean compile'
+            }
+        }
+
+        /*
+         * TEST STAGE
+         * Executes TestNG tests via Maven Surefire.
+         * Any test failure will fail the pipeline.
+         */
         stage('Run Tests') {
             steps {
-                dir('/Users/rahulhandoo/Desktop/automation') {
-                    sh 'mvn clean test'
-                }
+                sh 'mvn test'
             }
+        }
+
+        /*
+         * ARCHIVE STAGE
+         * Stores test reports in Jenkins for later review.
+         * Ensure reports path matches framework output.
+         */
+        stage('Archive Reports') {
+            steps {
+                archiveArtifacts artifacts: 'reports/*.html', fingerprint: true
+            }
+        }
+    }
+
+    /*
+     * POST ACTIONS
+     * Runs after pipeline execution based on result.
+     * Can be extended with email, Slack, etc.
+     */
+    post {
+        always {
+            echo 'Pipeline execution completed'
+        }
+        success {
+            echo 'All tests passed successfully'
+        }
+        failure {
+            echo 'Some tests failed'
         }
     }
 }
