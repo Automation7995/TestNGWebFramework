@@ -1,0 +1,35 @@
+pipeline {
+
+//agent section....................
+    //Agent defines WHERE your pipeline runs
+    agent any
+    // agent none //In this case you need to mention the agent under every stage
+    // agent {
+    //     label 'linux'
+    // }
+    // agent {
+    //     docker {
+    //         image 'maven:3.9.6-eclipse-temurin-11'
+    //     }
+    // }
+    // agent {
+    //     dockerfile true
+    // }
+//......................
+
+    // tools {
+    //     maven 'Maven-3.9'
+    //     jdk 'JDK-11'
+    // }
+
+    stages {
+        stage('')
+        stage('Run Tests') {
+            steps {
+                dir('/Users/rahulhandoo/Desktop/automation') {
+                    sh 'mvn clean test'
+                }
+            }
+        }
+    }
+}
