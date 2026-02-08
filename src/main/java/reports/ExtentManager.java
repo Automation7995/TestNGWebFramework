@@ -11,7 +11,7 @@ public class ExtentManager {
         if (extent == null) {
             ExtentSparkReporter reporter = new ExtentSparkReporter("reports/ExtentReports.html");
 
-            reporter.config().setReportName("Autoation Report");
+            reporter.config().setReportName("Automation Report");
             reporter.config().setDocumentTitle("Automation Title");
 
             extent = new ExtentReports();

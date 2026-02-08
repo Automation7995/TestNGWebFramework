@@ -15,7 +15,7 @@ public abstract class BaseTest {
     @BeforeClass
     public void setUp() {
          driver = DriverFactory.getDriver();
-         driver.manage().window().setSize(new Dimension(375,856));
+         driver.manage().window().maximize();
          driver.get(ConfigReader.getProperty("url"));
     }
 

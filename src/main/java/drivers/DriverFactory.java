@@ -10,6 +10,8 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import utils.ConfigReader;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DriverFactory {
 
@@ -42,7 +44,13 @@ public class DriverFactory {
     private static WebDriver getLocalDriver(String browser) {
         switch (browser) {
             case "CHROME":
-                return new ChromeDriver();
+                ChromeOptions chromeOptions = new ChromeOptions();
+
+                Map<String, Object> preferences = new HashMap<>();
+                preferences.put("profile.password_manager_leak_detection", false);
+
+                chromeOptions.setExperimentalOption("prefs", preferences);
+                return new ChromeDriver(chromeOptions);
             case "FIREFOX":
                 return new FirefoxDriver();
             case "EDGE":
