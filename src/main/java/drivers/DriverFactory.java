@@ -9,16 +9,16 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import utils.ConfigReader;
+
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
 public class DriverFactory {
 
-    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-
     static String browser = ConfigReader.getProperty("browser").toUpperCase();
     static String runMode = ConfigReader.getProperty("runMode").toUpperCase();
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static WebDriver getDriver() {
         if (driver.get() == null) {

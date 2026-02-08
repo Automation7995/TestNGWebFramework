@@ -1,19 +1,20 @@
 package tests;
 
+import base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import base.BaseTest;
 import pages.LoginPage;
+import utils.JSONConfigReader;
 
 public class LoginTest extends BaseTest {
 
     @DataProvider
     public static Object[][] loginData() {
         return new Object[][]{
-                {"visual_user", "secret_sauce", true},
-                {"visual_user", "admin", false},
-                {"admin", "secret_sauce", false}
+                {JSONConfigReader.getString("validUser.username"), JSONConfigReader.getString("validUser.password"), true},
+                {JSONConfigReader.getString("InvalidUsername.username"), JSONConfigReader.getString("InvalidUsername.password"), false},
+                {JSONConfigReader.getString("InvalidPassword.username"), JSONConfigReader.getString("InvalidPassword.password"), false},
         };
     }
 

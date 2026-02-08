@@ -1,0 +1,10 @@
+{
+  "environment": "qa",
+  "baseUrl": "https://www.saucedemo.com/",
+  "validUser.username": "visual_user",
+  "validUser.password": "secret_sauce",
+  "InvalidUsername.username": "admin",
+  "InvalidUsername.password": "secret_sauce",
+  "InvalidPassword.username": "visual_user",
+  "InvalidPassword.password": "admin"
+}

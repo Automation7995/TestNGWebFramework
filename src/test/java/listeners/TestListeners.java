@@ -1,19 +1,17 @@
 package listeners;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import drivers.DriverFactory;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-
-import drivers.DriverFactory;
 import reports.ExtentManager;
 import utils.ScreenshotUtils;
 
-public class TestListeners implements ITestListener{
+public class TestListeners implements ITestListener {
 
-    
+
     private static ExtentReports extent = ExtentManager.getInstance();
     private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 
@@ -35,7 +33,7 @@ public class TestListeners implements ITestListener{
     }
 
     @Override
-    public void onFinish(ITestContext context){
+    public void onFinish(ITestContext context) {
         extent.flush();
     }
 

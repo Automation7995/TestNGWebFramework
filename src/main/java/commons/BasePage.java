@@ -1,16 +1,16 @@
 package commons;
 
-import java.time.Duration;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public abstract class BasePage {
 
+    private static final int DEFAULT_TIMEOUT = 10;
     protected WebDriver driver;
     protected WebDriverWait wait;
-
-    private static final int DEFAULT_TIMEOUT = 10;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;

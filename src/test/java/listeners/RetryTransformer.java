@@ -1,12 +1,11 @@
 package listeners;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
-
 import org.testng.IAnnotationTransformer;
 import org.testng.annotations.ITestAnnotation;
-
 import retry.RetryAnanlyser;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 
 public class RetryTransformer implements IAnnotationTransformer {
 

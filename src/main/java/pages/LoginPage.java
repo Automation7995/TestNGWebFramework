@@ -1,14 +1,10 @@
 package pages;
 
-import org.openqa.selenium.*;
 import commons.BasePage;
-import utils.ConfigReader;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends BasePage {
-
-    public LoginPage(WebDriver driver) {
-        super(driver);
-    }
 
     private final By userName = By.cssSelector("input[placeholder='Username']");
     private final By passWord = By.cssSelector("input[placeholder='Password']");
@@ -17,6 +13,10 @@ public class LoginPage extends BasePage {
     private final By loginErrorMessage = By.cssSelector("div.error-message-container.error");
     private final By burgerMenu = By.cssSelector("#react-burger-menu-btn");
     private final By logoutButton = By.cssSelector("#logout_sidebar_link");
+
+    public LoginPage(WebDriver driver) {
+        super(driver);
+    }
 
     public void enterUsername(String username) {
         click(userName);
